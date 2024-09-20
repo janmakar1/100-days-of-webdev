@@ -1,8 +1,31 @@
+h1 {
+  font-size: 48px;
+}
+
 a {
   font-family: 'Fira Sans', sans-serif;
+  border-radius: 4px;
+  color: white;
+  background-color: rgb(157, 1, 78);
+  font-size: 24px;
+}
+
+a:hover {
+  background-color: rgb(180, 12, 90);
+  text-decoration: none;
 }
 
 h2 {
   font-family: "Oswald", sans-serif;
   color: rgb(170, 96, 83);
+}
+
+ol {
+  list-style: none;
+}
+
+li {
+  margin: 32px;
+  background-color: rgb(223, 136, 124);
+  border-radius: 6px;
 }
