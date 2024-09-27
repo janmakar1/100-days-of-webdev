@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-color: orange;
+        text-align: center;
+      }
+
+      h1 {
+        font-family: 'Oswald', sans-serif;
+      }
+
+      main {
+        background-color: lightgrey;
+        margin: 50px auto;
+        width: 800px;
+        padding: 0 32px;
+      }
+
+      h2 {
+        font-family: 'Oswald', sans-serif;
+      }
+
+      h3 {
+        font-family: 'Oswald', sans-serif;
+      }
+
+      pre {
+        font-family: 'Source Code Pro', monospace;
+        display: inline;
+      }
+
+      p {
+        font-family: 'Fira Sans', sans-serif;
+      }
+
+      li {
+        list-style-type: none;
+      }
+
+    </style>
+    <title>Git Cheatsheet</title>
+  </head>
+  <body>
+    <header>
+      <h1>Git Cheatsheet</h1>
+    </header>
+    <main>
+      <section>
+      <h2>Basics</h2>
+      <p>
+        <pre>git init</pre> - initialize git repository
+      </p>
+      <p>
+        <pre>git add &lt;FILE&gt;</pre> - add file to staging area - to be tracked by git.
+      </p>
+      <p>
+        <pre>git commit -m "commit message"</pre> - commit changes, must provide commit message (or default git editor will be opened)
+      </p>
+      <p>
+        <pre>git commit -am "commit message"</pre> - add and commit with one command
+      </p>
+    </section>
+
+
+      <section>
+        <h2>Branching</h2>
+        <p><pre>git branch</pre> - show actual branch name</p>
+        <p><pre>git branch -M main</pre> - rename actual branch for arg, here: <span>main</span></p>
+        <p><pre>git checkout -b feature</pre> - create new branch called <span>feature</span> and checkout to it</p>
+        <h3>Typical flow</h3>
+        <ol>
+          <li>We do some work on <span>feature</span> branch ...</li>
+          <li>We now want to merge them, add the changes, to the <span>master</span> (or recently more popular <span>main</span>)</li>
+          <li><pre>git checkout master</pre> - we switch to master branch</li>
+          <li><pre>git merge feature</pre> - we merge from branch provided as argument, here feature</li>
+        </ol>
+        <ul>
+          <li>Sometimes there can be a conflict, so then we have to resolve it manually. VS Code can show us current and incoming changes in a appealing way.</li>
+        </ul>
+
+      </section>
+
+      <section>
+        <h2>Deleting</h2>
+        <p class="TBD">TBD...</p>
+      </section>
+
+      <section>
+        <h2>Remote</h2>
+        <p class="TBD">TBD...</p>
+      </section>
+
+    </main>
+
+  </body>
+</html>
