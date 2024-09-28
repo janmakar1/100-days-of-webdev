@@ -21,37 +21,48 @@
       }
 
       h1 {
-        font-family: 'Oswald', sans-serif;
+        font-family: "Oswald", sans-serif;
       }
 
       main {
         background-color: lightgrey;
-        margin: 50px auto;
+        margin: 15px auto 35px auto;
         width: 800px;
-        padding: 0 32px;
+        padding: 42px 32px;
+        border-radius: 12px;
       }
 
       h2 {
-        font-family: 'Oswald', sans-serif;
+        font-family: "Oswald", sans-serif;
       }
 
       h3 {
-        font-family: 'Oswald', sans-serif;
+        font-family: "Oswald", sans-serif;
       }
 
-      pre {
-        font-family: 'Source Code Pro', monospace;
-        display: inline;
+      code {
+        font-family: "Source Code Pro", monospace;
+        /* display: inline; */
       }
 
       p {
-        font-family: 'Fira Sans', sans-serif;
+        font-family: "Fira Sans", sans-serif;
       }
 
       li {
+        font-family: "Fira Sans", sans-serif;
         list-style-type: none;
       }
 
+      span {
+        color: rgb(165, 24, 112);
+      }
+
+      .question {
+        color: rgb(200, 12, 23);
+        font-size: larger;
+        font-weight: bolder;
+      }
     </style>
     <title>Git Cheatsheet</title>
   </head>
@@ -61,51 +72,87 @@
     </header>
     <main>
       <section>
-      <h2>Basics</h2>
-      <p>
-        <pre>git init</pre> - initialize git repository
-      </p>
-      <p>
-        <pre>git add &lt;FILE&gt;</pre> - add file to staging area - to be tracked by git.
-      </p>
-      <p>
-        <pre>git commit -m "commit message"</pre> - commit changes, must provide commit message (or default git editor will be opened)
-      </p>
-      <p>
-        <pre>git commit -am "commit message"</pre> - add and commit with one command
-      </p>
-    </section>
-
+        <h2>Basics</h2>
+        <p><code>git init</code> - initialize git repository</p>
+        <p>
+          <code>git add &lt;FILE&gt;</code> - add file to staging area - to be
+          tracked by git.
+        </p>
+        <p>
+          <code>git commit -m "commit message"</code> - commit changes, must
+          provide commit message (or default git editor will be opened)
+        </p>
+        <p>
+          <code>git commit -am "commit message"</code> - add and commit with one
+          command
+        </p>
+      </section>
 
       <section>
         <h2>Branching</h2>
-        <p><pre>git branch</pre> - show actual branch name</p>
-        <p><pre>git branch -M main</pre> - rename actual branch for arg, here: <span>main</span></p>
-        <p><pre>git checkout -b feature</pre> - create new branch called <span>feature</span> and checkout to it</p>
+        <p><code>git branch</code> - show actual branch name</p>
+        <p>
+          <code>git branch -M main</code> - rename actual branch for arg, here:
+          <span>main</span>
+        </p>
+        <p>
+          <code>git checkout -b feature</code> - create new branch called
+          <span>feature</span> and checkout to it
+        </p>
         <h3>Typical flow</h3>
         <ol>
           <li>We do some work on <span>feature</span> branch ...</li>
-          <li>We now want to merge them, add the changes, to the <span>master</span> (or recently more popular <span>main</span>)</li>
-          <li><pre>git checkout master</pre> - we switch to master branch</li>
-          <li><pre>git merge feature</pre> - we merge from branch provided as argument, here feature</li>
+          <li>
+            We now want to merge them, add the changes, to the
+            <span>master</span> (or recently more popular <span>main</span>)
+          </li>
+          <li><code>git checkout master</code> - we switch to master branch</li>
+          <li>
+            <code>git merge feature</code> - we merge from branch provided as
+            argument, here feature
+          </li>
         </ol>
         <ul>
-          <li>Sometimes there can be a conflict, so then we have to resolve it manually. VS Code can show us current and incoming changes in a appealing way.</li>
+          <li>
+            Sometimes there can be a conflict, so then we have to resolve it
+            manually. VS Code can show us current and incoming changes in a
+            appealing way.
+          </li>
         </ul>
-
       </section>
 
       <section>
         <h2>Deleting</h2>
+
+        <p>
+          <code>git rm &lt;FILE&gt;</code> - <span class="question">??</span>
+        </p>
+        <p><code>git reset --hard</code> - <span class="question">??</span></p>
+        <p><code>git checkout -- .</code> - <span class="question">??</span></p>
+        <p>
+          <code>git restore --staged</code> - <span class="question">??</span>
+        </p>
+
         <p class="TBD">TBD...</p>
       </section>
 
       <section>
         <h2>Remote</h2>
-        <p class="TBD">TBD...</p>
+        <p>
+          <code>git remote add origin https://github.com/user/repo.git</code> -
+          add address as a origin under the name <span>origin</span> (most
+          common, recommended name)
+        </p>
+        <p>
+          <code>git push origin main</code> - push all commits from local
+          <span>main</span> branch to <span>origin</span>
+        </p>
+        <p><code>git push -u origin main</code> - + set upstream</p>
+        <p>
+          <code>git clone https://github.com/user/repo.git</code> - clone the
+          repo from remote
+        </p>
       </section>
-
     </main>
-
   </body>
 </html>
