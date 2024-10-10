@@ -1,0 +1,14 @@
+body {
+  background-color: plum;
+  margin: 2rem;
+}
+
+input {
+  width: 20rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+button {
+  display: inline;
+}
