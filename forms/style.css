@@ -3,9 +3,20 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+h1 {
+  text-align: center;
+  color: white;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 form {
-  width: 30rem;
-  width: 3rem auto;
+  width: 60rem;
+  margin: 3rem auto;
   background-color: rgb(255, 255, 255);
   padding: 1rem;
   border-radius: 6px;
@@ -16,7 +27,7 @@ label {
   margin-bottom: 0.5rem;
 }
 
-input {
+input, textarea, select {
   width: 100%;
   display: block;
   margin-bottom: 1rem;
@@ -27,10 +38,14 @@ input {
   color: rgb(61, 58, 58);
 }
 
-input:focus {
+input:focus, textarea:focus, select:focus {
   background-color: rgb(219, 190, 253);
   color: rgb(32, 5, 63);
   border-color: rgb(32, 5, 63);
+}
+
+textarea {
+  resize: none;
 }
 
 button {
