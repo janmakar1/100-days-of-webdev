@@ -19,3 +19,17 @@ alert(`Hi, my name is ${userName}, I am ${age} years old, I work
 as ${job.title} in ${job.place} (earning ${job.salary}$!). 
 I love ${hobbies} in my free time.`
 );
+
+
+let totalAdultYears;
+
+function calculateAdultYears(userAge) {
+  return userAge -18; 
+}
+
+totalAdultYears = calculateAdultYears(age);
+alert(totalAdultYears);
+
+age = 45;
+totalAdultYears = calculateAdultYears(age);
+alert(totalAdultYears);
