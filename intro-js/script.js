@@ -1,35 +1,33 @@
-/*let greetingText = 'Hi, I\'m Max!!';
+let userName = "Max";
 let age = 32;
-alert(greetingText);
-alert(greetingText);
-greetingText = 'I am *really* Max.';
-alert(greetingText);
-alert('My age is ' + age);*/
-
-let userName = 'Max';
-let age = 32;
-let hobbies = ['Sports', 'Cooking', 'Reading'];
+let hobbies = ["Sports", "Cooking", "Reading"];
 let job = {
-  title: 'Developer',
-  place: 'New York',
+  title: "Developer",
+  place: "New York",
   salary: 50000,
 };
-// alert(hobbies[0]);
-alert(`Hi, my name is ${userName}, I am ${age} years old, I work 
+console.log(`Hi, my name is ${userName}, I am ${age} years old, I work 
 as ${job.title} in ${job.place} (earning ${job.salary}$!). 
-I love ${hobbies} in my free time.`
-);
-
+I love ${hobbies} in my free time.`);
 
 let totalAdultYears;
 
 function calculateAdultYears(userAge) {
-  return userAge -18; 
+  return userAge - 18;
 }
 
 totalAdultYears = calculateAdultYears(age);
-alert(totalAdultYears);
+console.log(totalAdultYears);
 
 age = 45;
 totalAdultYears = calculateAdultYears(age);
-alert(totalAdultYears);
+console.log(totalAdultYears);
+
+let person = {
+  name: "Max",
+  greet() {
+    console.log("Hello");
+  },
+};
+
+person.greet();
