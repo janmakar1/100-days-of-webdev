@@ -26,3 +26,7 @@ console.log("result: " + result);
 let userName = "Max";
 console.log(userName.length);
 console.log(userName.toUpperCase());
+
+
+let langs = ["python", "php", "js"];
+console.log(langs.length);
