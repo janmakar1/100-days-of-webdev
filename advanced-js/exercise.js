@@ -14,7 +14,7 @@ console.log(header);
 let bodyElem = header.parentElement;
 console.log(bodyElem);
 
-let paragraph = header.nextSibling;
+let paragraph = header.nextElementSibling;
 console.log(paragraph);
 
 // 3. Select the <h1> element with getElementById and store in
