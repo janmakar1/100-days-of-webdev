@@ -31,8 +31,9 @@
         <form>
           <div class="form-control">
             <label for="playername">Player name</label>
-            <input type="text" name="username" id="playername" />
+            <input type="text" name="playername" id="playername" />
           </div>
+          <p id="config-errors"></p>
           <div>
             <button type="button" class="btn btn-alt" id="cancel-config-btn">
               Cancel
@@ -48,7 +49,7 @@
           <li>
             <article>
               <h2>Player 1</h2>
-              <h3>PLAYER NAME</h3>
+              <h3 id="player1-placeholder">PLAYER NAME</h3>
               <p class="player-symbol">X</p>
               <button class="btn btn-alt" id="edit-player-1-btn">Edit</button>
             </article>
@@ -56,7 +57,7 @@
           <li>
             <article>
               <h2>Player 2</h2>
-              <h3>PLAYER NAME</h3>
+              <h3 id="player2-placeholder">PLAYER NAME</h3>
               <p class="player-symbol">O</p>
               <button class="btn btn-alt" id="edit-player-2-btn">Edit</button>
             </article>
