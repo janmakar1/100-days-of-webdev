@@ -1,4 +1,6 @@
-function openPlayerConfig() {
+function openPlayerConfig(event) {
+  const selectedPlayerId = +event.target.dataset.playerid;
+  editedPlayer = selectedPlayerId;
   playerConfigOverlayElement.style.display = "block";
   backdropElement.style.display = "block";
 }
@@ -8,15 +10,13 @@ function closePlayerConfig() {
   backdropElement.style.display = "none";
   formElement.firstElementChild.classList.remove("error");
   errorsOutputElement.textContent = "";
+  formElement.firstElementChild.lastElementChild.value = "";
 }
 
 function savePlayerConfig(event) {
-  console.log(event);
   event.preventDefault();
   const formData = new FormData(event.target);
-  console.log(formData);
   const enteredPlayername = formData.get("playername").trim();
-  console.log(enteredPlayername);
 
   if (!enteredPlayername) {
     event.target.firstElementChild.classList.add("error");
@@ -24,5 +24,14 @@ function savePlayerConfig(event) {
     return;
   }
 
-  player1PlaceholderElement.textContent = enteredPlayername;
+  const updatedPlayerDataElement = document.getElementById(
+    "player-" + editedPlayer + "-data"
+  );
+  console.log(updatedPlayerDataElement);
+  console.log(updatedPlayerDataElement.children);
+  updatedPlayerDataElement.children[1].textContent = enteredPlayername;
+
+  players[editedPlayer - 1].name = enteredPlayername;
+
+  closePlayerConfig();
 }
