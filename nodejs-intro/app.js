@@ -18,6 +18,22 @@ app.get("/", function (req, res) {
   );
 });
 
+app.get("/users", function (req, res) {
+  const filePath = path.join(__dirname, "data", "users.json");
+
+  const fileData = fs.readFileSync(filePath);
+  const existingUsers = JSON.parse(fileData);
+
+  let responseData = "<ol>";
+  for (const user of existingUsers) {
+    responseData += "<li>" + user + "</li>";
+  }
+  responseData += "</ol>";
+
+  // res.send(existingUsers);
+  res.send(responseData);
+});
+
 app.post("/store-user", function (req, res) {
   const userName = req.body.username;
   console.log(userName);
