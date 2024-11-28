@@ -13,9 +13,10 @@
   "dependencies": {
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "mongodb": "^4.0.1"
+    "mongodb": "^4.0.1",
+    "xss": "^1.0.15"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "nodemon": "^3.1.7"
   }
 }
