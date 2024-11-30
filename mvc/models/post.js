@@ -8,7 +8,6 @@ class Post {
   constructor(title, content, id) {
     this.title = title;
     this.content = content;
-    this.id = id;
 
     if (id) {
       this.id = ObjectId(id);
