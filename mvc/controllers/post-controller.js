@@ -7,10 +7,6 @@ function getHome(req, res) {
 }
 
 async function getAdmin(req, res) {
-  if (!res.locals.isAuth) {
-    return res.status(401).render("401");
-  }
-
   const posts = await Post.fetchAll();
 
   sessionErrorData = validationSession.getSessionErrorData(req, {
@@ -102,13 +98,8 @@ async function updatePost(req, res) {
 }
 
 async function deletePost(req, res) {
-  // const postId = new ObjectId(req.params.id);
-  // await db.getDb().collection("posts").deleteOne({ _id: postId });
-
   const post = new Post(null, null, req.params.id);
-  console.log(post.toString());
   await post.delete();
-
   res.redirect("/admin");
 }
 

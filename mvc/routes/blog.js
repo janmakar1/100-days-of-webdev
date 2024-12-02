@@ -1,19 +1,22 @@
 const express = require("express");
 
-const blogControllers = require("../controllers/post-controller");
+const blogController = require("../controllers/post-controller");
+const guardRoute = require("../middlewares/auth-protection-middleware");
 
 const router = express.Router();
 
-router.get("/", blogControllers.getHome);
+router.get("/", blogController.getHome);
 
-router.get("/admin", blogControllers.getAdmin);
+router.use(guardRoute);
 
-router.post("/posts", blogControllers.createPost);
+router.get("/admin", blogController.getAdmin);
 
-router.get("/posts/:id/edit", blogControllers.getSinglePost);
+router.post("/posts", blogController.createPost);
 
-router.post("/posts/:id/edit", blogControllers.updatePost);
+router.get("/posts/:id/edit", blogController.getSinglePost);
 
-router.post("/posts/:id/delete", blogControllers.deletePost);
+router.post("/posts/:id/edit", blogController.updatePost);
+
+router.post("/posts/:id/delete", blogController.deletePost);
 
 module.exports = router;
