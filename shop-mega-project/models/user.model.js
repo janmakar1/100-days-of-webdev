@@ -14,12 +14,30 @@ class User {
     };
   }
 
+  getUserWithSameEmail() {
+    return db.getDb().collection("users").findOne({ email: this.email });
+  }
+
+  async existsAlready() {
+    const existingUser = await this.getUserWithSameEmail();
+    if (existingUser) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  hasMatchingPassword(hashedPassword) {
+    return bcrypt.compare(this.password, hashedPassword);
+  }
+
   async signup() {
     const hashedPassword = await bcrypt.hash(this.password, 12);
+    console.log(hashedPassword);
 
     db.getDb().collection("users").insertOne({
       email: this.email,
-      password: this.hashedPassword,
+      password: hashedPassword,
       name: this.name,
       address: this.address,
     });
