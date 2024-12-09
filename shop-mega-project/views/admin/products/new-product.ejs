@@ -5,14 +5,14 @@
   <%- include("../../shared/includes/header") %>
   <main>
     <h1>Add new Product</h1>
-    <form>
+    <form action="/admin/products?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
       <p>
         <label for="title">Title</label>
         <input type="text" id="title" name="title" required>
       </p>
       <p>
         <label for="image">Image</label>
-        <input type="file" id="image" name="image" accept="image/png,image/jpg">
+        <input type="file" id="image" name="image" accept="image/jpeg,image/png">
       </p>
       <p>
         <label for="summary">Summary</label>
@@ -24,7 +24,7 @@
       </p>
       <p>
         <label for="description">Description</label>
-        <textarea id="price" name="price" rows="7" required></textarea>
+        <textarea id="description" name="description" rows="7" required></textarea>
       </p>
 
       <p>
