@@ -60,7 +60,7 @@ ol {
 
 a {
   text-decoration: none;
-  color: var(--color-primary-400)
+  color: var(--color-primary-400);
 }
 
 .btn {
@@ -84,7 +84,7 @@ a {
   color: var(--color-primary-100);
 }
 
-.btn-alt::hover
+.btn-alt::hover,
 .btn-alt::active {
   background-color: var(--color-primary-500-bg);
 }
@@ -104,4 +104,12 @@ a {
 
 .alert p {
   margin: var(--space-2) 0;
+}
+
+.badge {
+  margin-left: var(--space-2);
+  padding: 0.15rem var(--space-4);
+  border-radius: 10rem;
+  background-color: var(--color--primary-500);
+  color: var(--color--primary-500--contrast);
 }

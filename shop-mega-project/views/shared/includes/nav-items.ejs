@@ -2,7 +2,13 @@
   <!-- prettier-ignore -->
   <% if (!locals.isAdmin) { %>
   <li><a href="/">Shop</a></li>
-  <li><a href="/cart">Cart</a></li>
+  <li>
+    <!-- <a href="/cart">Cart <span class="badge">0</span></a> -->
+    <a href="/cart"
+      >Cart <span class="badge"><%= locals.cart.totalQuantity %></span></a
+    >
+    <!-- <a href="/cart">Cart</a> -->
+  </li>
   <% } %>
 
   <!-- prettier-ignore -->
@@ -18,7 +24,7 @@
 
     <% if (!locals.isAuth) { %>
   <li><a href="/signup">Signup</a></li>
-  <li><a href="/signup">Login</a></li>
+  <li><a href="/login">Login</a></li>
   <% } %>
 
   <!-- prettier-ignore -->
