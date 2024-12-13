@@ -1,9 +1,9 @@
-const addToCartButtonElement = document.querySelector(
-  "$product-details button"
-);
+const addToCartButtonElement = document.querySelector("#product-details button");
+const cartBadgeElement = document.querySelector(".nav-items .badge");
 
 async function addToCart() {
   const productId = addToCartButtonElement.dataset.productid;
+  const csrfToken = addToCartButtonElement.dataset.csrf;
 
   let response;
   try {
@@ -11,15 +11,17 @@ async function addToCart() {
       method: "POST",
       body: JSON.stringify({
         productId: productId,
+        _csrf: csrfToken
       }),
       headers: {
         "Content-Type": "application/json",
       },
     });
   } catch (error) {
-    alert("Something wnet wrong. ");
+    alert("Something went wrong.");
+    return;
   }
-
+  
   if (!response.ok) {
     alert("Something went wrong!");
     return;
@@ -28,6 +30,7 @@ async function addToCart() {
   const responseData = await response.json();
 
   const newTotalQuantity = responseData.newTotalItems;
+  cartBadgeElement.textContent = newTotalQuantity;
 }
 
 addToCartButtonElement.addEventListener("click", addToCart);
