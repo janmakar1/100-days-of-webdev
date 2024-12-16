@@ -31,7 +31,7 @@ function updateCartItem(req, res) {
 
   req.session.cart = cart;
 
-  req.json({
+  res.json({
     message: "Item updated!",
     updatedCartData: {
       newTotalQuantity: cart.totalQuantity,
@@ -43,5 +43,6 @@ function updateCartItem(req, res) {
 
 module.exports = {
   addCartItem: addCartItem,
-  getCart: getCart
+  getCart: getCart,
+  updateCartItem: updateCartItem
 };
