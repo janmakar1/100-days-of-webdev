@@ -4,10 +4,10 @@ const mongodb = require("mongodb");
 const db = require("../data/database");
 
 class User {
-  constructor(email, password, fullnamem, street, postal, city) {
+  constructor(email, password, fullname, street, postal, city) {
     this.email = email;
     this.password = password;
-    this.name = fullnamem;
+    this.name = fullname;
     this.address = {
       street: street,
       postalCode: postal,
@@ -16,12 +16,12 @@ class User {
   }
 
   static findById(userId) {
-    const uid = mongodb.ObjectId(userId);
+    const uid = new mongodb.ObjectId(userId);
 
     return db
       .getDb()
       .collection("users")
-      .findOne({_id: uid}, { projection: {password: 0 } });
+      .findOne({ _id: uid }, { projection: { password: 0 } });
   }
 
   getUserWithSameEmail() {
@@ -35,22 +35,23 @@ class User {
     } else {
       return false;
     }
-  }
-
-  hasMatchingPassword(hashedPassword) {
-    return bcrypt.compare(this.password, hashedPassword);
+    return false;
   }
 
   async signup() {
     const hashedPassword = await bcrypt.hash(this.password, 12);
     console.log(hashedPassword);
 
-    db.getDb().collection("users").insertOne({
+    await db.getDb().collection("users").insertOne({
       email: this.email,
       password: hashedPassword,
       name: this.name,
       address: this.address,
     });
+  }
+
+  hasMatchingPassword(hashedPassword) {
+    return bcrypt.compare(this.password, hashedPassword);
   }
 }
 

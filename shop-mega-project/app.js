@@ -36,7 +36,7 @@ app.use(expressSession(sessionConfig));
 app.use(csrf());
 
 app.use(cartMiddleware);
-app.use(protectRoutesMiddleware);
+app.use(updateCartPricesMiddleware);
 
 app.use(addCsrfTokenMiddleware);
 app.use(checkAuthStatusMiddleware);
@@ -57,7 +57,7 @@ db.connectToDatabase()
     app.listen(3000);
   })
   .catch(function (error) {
-    console.log("Failed to connect to the database");
+    console.log("Failed to connect to the database!");
     console.log(error);
   });
 // app.listen(3000);

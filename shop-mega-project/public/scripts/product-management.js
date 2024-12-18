@@ -6,7 +6,7 @@ async function deleteProduct(event) {
   const csrfToken = buttonElement.dataset.csrf;
 
   const response = await fetch("/admin/products/" + productId + "?_csrf=" + csrfToken, {
-    method: "DELETE",
+    method: "DELETE"
   });
 
   if (!response.ok) {
@@ -14,7 +14,7 @@ async function deleteProduct(event) {
     return;
   }
 
-  buttonElement.parentElement.parentElement.parentElement.remove();
+  buttonElement.parentElement.parentElement.parentElement.parentElement.remove();
 }
 
 for (const deleteProductButtonElement of deleteProductButtonElements) {
