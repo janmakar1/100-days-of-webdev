@@ -1,4 +1,4 @@
-#product-grid {
+#products-grid {
   margin: var(--space-8) auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
@@ -6,7 +6,7 @@
 }
 
 .product-item {
-  border-radius: var(--border-radiu-medium);
+  border-radius: var(--border-radius-medium);
   text-align: center;
   background-color: var(--color-gray-600);
   overflow: hidden;
@@ -24,7 +24,7 @@
 
 .product-item-content h2 {
   font-size: 1.15rem;
-  margin: var(--space-2);
+  margin: var(--space-2) 0;
 }
 
 .product-item-actions {
